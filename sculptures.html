@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sculptor Portfolio | Completed Sculptures</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">SCULPTURE STUDIO</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sculptures.html" class="active">Sculptures</a>
+            <a href="behind-the-scenes.html">Behind The Scenes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Portfolio Gallery Section -->
+    <section class="portfolio-section">
+        <div class="section-header center">
+            <span class="sub-title">Archive</span>
+            <h2>Completed Sculptures</h2>
+            <div class="accent-line center"></div>
+        </div>
+
+        <!-- Material Filter Tabs -->
+        <div class="filter-container">
+            <div class="filter-label">Filter by Material:</div>
+            <div class="material-filters" id="materialFilters">
+                <!-- أزرار الفلترة حسب الخامة ستظهر هنا تلقائياً -->
+            </div>
+        </div>
+
+        <!-- Gallery Card Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- المنحوتات المكتملة ستظهر هنا تلقائياً من ملف script.js -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Get In Touch</h2>
+            <p>For exhibitions, commissions, or art inquiries:</p>
+            <a href="mailto:contact@sculptor.com" class="email-link">contact@sculptor.com</a>
+            <div class="copyright">&copy; 2026 Sculptor Portfolio. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
