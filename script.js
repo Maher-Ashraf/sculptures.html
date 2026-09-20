@@ -7,24 +7,8 @@ const sculpturesData = [
         title: "Deep Sea Angler Headpiece",
         material: "Mixed Media",
         year: "2026",
-        image: "angler_cutout.jpg",
+        image: "Fish.jpg",
         description: "A wearable sculpture inspired by the deep-sea Anglerfish, blending fine art with conceptual performance. Hand-sculpted with intricate textural details, menacing teeth, and a functional glowing lure, this piece transforms the wearer into a mythical creature of the dark, exploring themes of isolation and hidden identity."
-    },
-    {
-        id: 2,
-        title: "Angler Mask Performance",
-        material: "Mixed Media",
-        year: "2026",
-        image: "angler_street.jpg",
-        description: "Interactive public sculpture exhibition and urban performance piece."
-    },
-    {
-        id: 3,
-        title: "Anatomical Form Study",
-        material: "Clay & Plaster",
-        year: "2025",
-        image: "clay_study1.jpg",
-        description: "Exploration of organic lines and motion cast in white plaster finish."
     }
 ];
 
