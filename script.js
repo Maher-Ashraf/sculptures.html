@@ -1,49 +1,48 @@
-// =========================================================
-// قائمة المنحوتات المكتملة (هنا نضيف المنحوتات الجديدة)
-// =========================================================
+// قائمة المنحوتات
 const sculpturesData = [
     {
         id: 1,
         title: "Deep Sea Angler Headpiece",
         material: "Mixed Media",
         year: "2026",
-        image: "Fish.jpg",
-        description: "A wearable sculpture inspired by the deep-sea Anglerfish, blending fine art with conceptual performance. Hand-sculpted with intricate textural details, menacing teeth, and a functional glowing lure, this piece transforms the wearer into a mythical creature of the dark, exploring themes of isolation and hidden identity."
+        image: "angler_cutout.jpg",
+        description: "Studio display of the hand-sculpted mask, showcasing detailed teeth, illuminated lure, and rich red patina."
+    },
+    {
+        id: 2,
+        title: "Angler Mask Performance",
+        material: "Mixed Media",
+        year: "2026",
+        image: "angler_street.jpg",
+        description: "Interactive public sculpture exhibition and urban performance piece."
+    },
+    {
+        id: 3,
+        title: "Anatomical Form Study",
+        material: "Clay & Plaster",
+        year: "2025",
+        image: "clay_study1.jpg",
+        description: "Exploration of organic lines and motion cast in white plaster finish."
     }
 ];
 
-// =========================================================
-// كود البرمجة التلقائي (لا يحتاج لتعديل)
-// =========================================================
-document.addEventListener("DOMContentLoaded", () => {
+// دالة التشغيل المستقرة
+function initGallery() {
     const materialFiltersContainer = document.getElementById("materialFilters");
     const galleryGrid = document.getElementById("galleryGrid");
 
     if (!galleryGrid || !materialFiltersContainer) return;
 
-    // استخراج الخامات بدون تكرار
     const materials = ["All Materials", ...new Set(sculpturesData.map(item => item.material))];
 
-    // إنشاء أزرار الفلترة
-    function renderMaterialFilters() {
-        materialFiltersContainer.innerHTML = materials.map((mat, index) => `
-            <button class="filter-btn ${index === 0 ? 'active' : ''}" data-material="${mat}">
-                ${mat}
-            </button>
-        `).join('');
+    // عرض الأزرار
+    materialFiltersContainer.innerHTML = materials.map((mat, index) => `
+        <button class="filter-btn ${index === 0 ? 'active' : ''}" data-material="${mat}">
+            ${mat}
+        </button>
+    `).join('');
 
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                const selectedMaterial = e.target.getAttribute('data-material');
-                renderGallery(selectedMaterial);
-            });
-        });
-    }
-
-    // عرض المنحوتات في الشبكة
+    // عرض المعرض
     function renderGallery(selectedMaterial = "All Materials") {
         const filteredData = selectedMaterial === "All Materials"
             ? sculpturesData 
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         galleryGrid.innerHTML = filteredData.map(item => `
             <div class="card">
                 <div class="card-img-container">
-                    <img src="${item.image}" alt="${item.title}">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=Sculpture+Image'">
                 </div>
                 <div class="card-info">
                     <div class="card-badges">
@@ -66,6 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
         `).join('');
     }
 
-    renderMaterialFilters();
+    // إضافة أحداث الضغط للفلترة
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            const selectedMaterial = e.target.getAttribute('data-material');
+            renderGallery(selectedMaterial);
+        });
+    });
+
     renderGallery();
-});
+}
+
+// التأكد من تشغيل الكود سواء تم تحميل الصفحة أم لا
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+} else {
+    initGallery();
+}
